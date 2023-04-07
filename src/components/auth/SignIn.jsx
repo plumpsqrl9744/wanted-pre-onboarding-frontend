@@ -22,7 +22,7 @@ const SignIn = () => {
 
     const signInHandler = async () => {
         try {
-            await axios.post(`https://www.pre-onboarding-selection-task.shop/auth/signin`, {
+            const resp = await axios.post(`https://www.pre-onboarding-selection-task.shop/auth/signin`, {
                 email : signInInputs.id,
                 password : signInInputs.password
             }, {
@@ -31,8 +31,15 @@ const SignIn = () => {
             }
         }
     )
+    console.log("data",resp)
+    
+    // const authorization = resp.data[access_token]
+    const authorization = resp.data["access_token"]
+    const content = resp.headers["content-type"]
+    localStorage.setItem("Authorization", authorization);
+    localStorage.setItem("Content", content);
     alert("로그인 성공!")
-    navigate("/todo")
+    // navigate("/todo")
     }catch(error) {
             console.log(error)
         }
