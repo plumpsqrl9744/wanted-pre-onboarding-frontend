@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios'; 
 import styled from 'styled-components';
@@ -40,6 +40,12 @@ const SignIn = () => {
             console.log(error)
         }
     };
+
+    useEffect(() => {
+        const authorization = localStorage.getItem("Authorization");
+        if (authorization) 
+            navigate("/todo")
+    });
 
     return (
         <StSignInWrapper>

@@ -101,7 +101,7 @@ const Todo = () => {
     };
 
     useEffect (() => {
-        !authorization ? navigate("/signin") : getTodos()
+        localStorage.length < 1 ? navigate("/signin") : getTodos()
     },[refreshKey])
 
     return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';  
 import styled from 'styled-components';
@@ -37,6 +37,12 @@ const SignUp = () => {
             alert(error.response.data.message)
         }
     };
+
+    useEffect(() => {
+        const authorization = localStorage.getItem("Authorization");
+        if (authorization) 
+            navigate("/todo")
+    });
 
     return (
         <StSignUpWrapper>
