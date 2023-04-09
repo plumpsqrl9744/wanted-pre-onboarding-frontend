@@ -1,4 +1,4 @@
-## wanted-pre-onboarding-frontend 과제
+## 📕 wanted-pre-onboarding-frontend 과제
 배포링크 : https://wanted-pre-onboarding-frontend-seven-rho.vercel.app/
 
 <br>
