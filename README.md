@@ -1,11 +1,16 @@
 ## wanted-pre-onboarding-frontend 과제
 배포링크 : https://wanted-pre-onboarding-frontend-seven-rho.vercel.app/
 
+<br>
+
 ## 🔥 실행
-프로젝트 설치 및 실행방법
+* 프로젝트 설치 및 실행방법
+```html
 $ git clone https://github.com/plumpsqrl9744/wanted-pre-onboarding-frontend.git
 $ npm install
 $ npm start
+```
+<br>
 
 ## 🔨 기능설명 및 경로
 ### 1. 메인 ( / )
@@ -23,6 +28,7 @@ $ npm start
 ### 4. 할 일 목록 ( /todo )
 todo list를 작성할 수 있습니다. 할 일 별로 삭제, 수정, 완료여부 체크를 할 수 있습니다.
 
+<br>
 
 ## 💁 세부설명
 ### 1. 환경변수 사용
