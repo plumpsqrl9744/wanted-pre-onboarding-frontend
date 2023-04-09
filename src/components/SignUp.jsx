@@ -22,7 +22,7 @@ const SignUp = () => {
   
     const signUpHandler  = async () => {
         try {
-             await axios.post(`${process.env.REACT_APP_API_URL}auth/signup`, {
+             await axios.post(`https://www.pre-onboarding-selection-task.shop/auth/signup`, {
                     email : signUpInputs.id,
                     password : signUpInputs.password
                 }, {

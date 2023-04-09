@@ -16,13 +16,13 @@ const SignIn = () => {
 
     const onChangeHandler = (e) => {
         const { name, value } = e.target
-        const nextInputs = { ...signInInputs,  [name]: value,}
+        const nextInputs = { ...signInInputs, [name]: value,}
         setSignInInputs(nextInputs);
       };
 
     const signInHandler = async () => {
         try {
-            const resp = await axios.post(`${process.env.REACT_APP_API_URL}auth/signin`, {
+            const resp = await axios.post(`https://www.pre-onboarding-selection-task.shop/auth/signin`, {
                 email : signInInputs.id,
                 password : signInInputs.password
             }, {
