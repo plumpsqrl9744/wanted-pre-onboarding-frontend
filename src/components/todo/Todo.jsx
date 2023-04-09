@@ -17,7 +17,7 @@ const Todo = () => {
     const createTodos = async () => {
 
         try {
-            await axios.post('https://www.pre-onboarding-selection-task.shop/todos', {
+            await axios.post(`${process.env.REACT_APP_API_URL}todos`, {
                 todo : todoInputs
             }, {
             headers: {
@@ -35,7 +35,7 @@ const Todo = () => {
 
     const getTodos = useCallback(async () => {
 
-        const resp = await axios.get('https://www.pre-onboarding-selection-task.shop/todos', {
+        const resp = await axios.get(`${process.env.REACT_APP_API_URL}todos`, {
                 headers: {
                     Authorization: `Bearer ${authorization}`,
                 }
@@ -52,7 +52,7 @@ const Todo = () => {
 
     const deleteTodo = async (data) => {
 
-        await axios.delete(`https://www.pre-onboarding-selection-task.shop/todos/${data}`, {
+        await axios.delete(`${process.env.REACT_APP_API_URL}todos/${data}`, {
             headers: {
                 Authorization: `Bearer ${authorization}`
             }
@@ -66,8 +66,7 @@ const Todo = () => {
         newTodos[index].isCompleted = !todos[index].isCompleted
         setTodos(newTodos);
 
-        console.log(todos[index].isCompleted)
-        axios.put(`https://www.pre-onboarding-selection-task.shop/todos/${todos[index].id}`, {
+        axios.put(`${process.env.REACT_APP_API_URL}todos/${todos[index].id}`, {
                 todo : todos[index].todo,
                 isCompleted : todos[index].isCompleted
             },{ 
@@ -81,9 +80,8 @@ const Todo = () => {
     const editHandler = async (index) => {
 
         setEditTarget(-1);
-
         try {
-            await axios.put(`https://www.pre-onboarding-selection-task.shop/todos/${todos[index].id}`, {
+            await axios.put(`${process.env.REACT_APP_API_URL}todos/${todos[index].id}`, {
                 todo : editedTodo,
                 isCompleted : todos[index].isCompleted
             },{ 
@@ -99,15 +97,12 @@ const Todo = () => {
     };
 
     const cancleHandler = () => {
-        
         setEditTarget(-1)
     };
 
     useEffect (() => {
-
         !authorization ? navigate("/signin") : getTodos()
-
-        },[refreshKey])
+    },[refreshKey])
 
     return (
         <div>

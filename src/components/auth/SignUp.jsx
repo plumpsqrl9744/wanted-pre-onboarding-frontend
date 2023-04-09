@@ -18,11 +18,11 @@ const SignUp = () => {
         const { name, value } = e.target
         const nextInputs = { ...signUpInputs,  [name]: value,}
         setSignUpInputs(nextInputs);
-      }
+      };
   
     const signUpHandler  = async () => {
         try {
-             await axios.post(`https://www.pre-onboarding-selection-task.shop/auth/signup`, {
+             await axios.post(`${process.env.REACT_APP_API_URL}auth/signup`, {
                     email : signUpInputs.id,
                     password : signUpInputs.password
                 }, {
@@ -36,7 +36,7 @@ const SignUp = () => {
         }catch(error) {
             alert(error.response.data.message)
         }
-    }
+    };
 
     return (
         <StSignUpWrapper>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios'; 
 import styled from 'styled-components';
 
@@ -22,7 +22,7 @@ const SignIn = () => {
 
     const signInHandler = async () => {
         try {
-            const resp = await axios.post(`https://www.pre-onboarding-selection-task.shop/auth/signin`, {
+            const resp = await axios.post(`${process.env.REACT_APP_API_URL}auth/signin`, {
                 email : signInInputs.id,
                 password : signInInputs.password
             }, {
@@ -65,6 +65,7 @@ const SignIn = () => {
                     disabled={isEnable ? false : true }
                 >로그인</button>
             </StInputWrapper>
+            <Link to= "/signup">회원가입하기</Link>
         </StSignInWrapper>
     );
 };
