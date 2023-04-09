@@ -5,12 +5,12 @@ import styled from 'styled-components';
 
 const SignIn = () => {
 
-    const navigate = useNavigate();
-
     const [signInInputs, setSignInInputs] = useState({
         id : "",
         password : ""
     });
+
+    const navigate = useNavigate();
 
     const isEnable = signInInputs.id.includes("@") && signInInputs.password.length >= 8 ? true : false
 
@@ -33,17 +33,13 @@ const SignIn = () => {
     )
     
     const authorization = resp.data["access_token"]
-    const content = resp.headers["content-type"]
     localStorage.setItem("Authorization", authorization);
-    localStorage.setItem("Content", content);
     alert("로그인 성공!")
-    console.log("Hi1")
     navigate("/todo")
-    console.log("Hi2")
     }catch(error) {
             console.log(error)
         }
-    }
+    };
 
     return (
         <StSignInWrapper>

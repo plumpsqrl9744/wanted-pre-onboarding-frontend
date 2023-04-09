@@ -5,26 +5,26 @@ import styled from 'styled-components';
 
 const SignUp = () => {
 
-    const navigate = useNavigate();
-
-    const [signUpinputs, setSignUpInputs] = useState({
+    const [signUpInputs, setSignUpInputs] = useState({
         id : "",
         password : ""
     });
 
-    const isEnable = signUpinputs.id.includes("@") && signUpinputs.password.length >= 8 ? true : false
+    const navigate = useNavigate();
+
+    const isEnable = signUpInputs.id.includes("@") && signUpInputs.password.length >= 8 ? true : false
 
     const onChangeHandler = (e) => {
         const { name, value } = e.target
-        const nextInputs = { ...signUpinputs,  [name]: value,}
+        const nextInputs = { ...signUpInputs,  [name]: value,}
         setSignUpInputs(nextInputs);
       }
   
     const signUpHandler  = async () => {
         try {
              await axios.post(`https://www.pre-onboarding-selection-task.shop/auth/signup`, {
-                    email : signUpinputs.id,
-                    password : signUpinputs.password
+                    email : signUpInputs.id,
+                    password : signUpInputs.password
                 }, {
                 Headers: {
                     "Content-Type" : `application/json`
@@ -33,12 +33,11 @@ const SignUp = () => {
         )
         alert("회원가입 성공!");
         navigate("/signin");
-        }
-        catch(error) {
+        }catch(error) {
             alert(error.response.data.message)
         }
     }
-    
+
     return (
         <StSignUpWrapper>
             <StTitle>회원가입</StTitle>
