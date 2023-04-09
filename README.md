@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+## wanted-pre-onboarding-frontend 과제
+배포링크 : https://wanted-pre-onboarding-frontend-seven-rho.vercel.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🔥 실행
+프로젝트 설치 및 실행방법
+$ git clone https://github.com/plumpsqrl9744/wanted-pre-onboarding-frontend.git
+$ npm install
+$ npm start
 
-## Available Scripts
+## 🔨 기능설명 및 경로
+### 1. 메인 ( / )
+로그인 화면으로 바로 이동할 수 있습니다.
 
-In the project directory, you can run:
+### 2. 회원가입 ( /signup )
+회원가입을 할 수 있습니다.
 
-### `npm start`
+### 3. 로그인( /signin )
+로그인을 할 수 있습니다. 회원가입으로 넘어갈 수 있는 링크가 있습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* 회원가입, 로그인 유효성 검사
+  * e-mail : "@"를 포함
+  * password : 문자 상관없이 8자 이상
+### 4. 할 일 목록 ( /todo )
+todo list를 작성할 수 있습니다. 할 일 별로 삭제, 수정, 완료여부 체크를 할 수 있습니다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 💁 세부설명
+### 1. 환경변수 사용
+* api 주소가 보이지 않도록 .env 파일에 따로 환경변수로 등록했습니다.
+* 등록된 주소가 보이지 않도록 .gitignore에 환경변수 디렉토리를 추가했습니다.
+### 2. git convention
+* git convention에 맞게 commit 하였습니다.
+### 3. refactoring
+* console.log와 같은 불필요한 코드를 제거했습니다.
+* 사용하지 않는 변수, 매개변수, 함수 등을 모두 제거했습니다.
