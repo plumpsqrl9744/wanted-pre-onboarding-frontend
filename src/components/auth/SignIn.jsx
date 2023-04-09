@@ -31,15 +31,15 @@ const SignIn = () => {
             }
         }
     )
-    console.log("data",resp)
     
-    // const authorization = resp.data[access_token]
     const authorization = resp.data["access_token"]
     const content = resp.headers["content-type"]
     localStorage.setItem("Authorization", authorization);
     localStorage.setItem("Content", content);
     alert("로그인 성공!")
-    // navigate("/todo")
+    console.log("Hi1")
+    navigate("/todo")
+    console.log("Hi2")
     }catch(error) {
             console.log(error)
         }
@@ -77,9 +77,4 @@ export default SignIn;
 
 const StSignInWrapper = styled.div``
 const StInputWrapper = styled.div``
-// const StSignInWrapper = styled.div``
-// const StSignInWrapper = styled.div``
-// const StSignInWrapper = styled.div``
-// const StSignInWrapper = styled.div``
-// const StSignInWrapper = styled.div``
-// const StSignInWrapper = styled.div``
+
