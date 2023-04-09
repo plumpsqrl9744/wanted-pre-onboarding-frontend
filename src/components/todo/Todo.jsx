@@ -14,10 +14,6 @@ const Todo = () => {
     const navigate = useNavigate();
     const authorization = localStorage.getItem("Authorization");
 
-    const onChangeHandler = (e) => {
-        setTodoInputs(e.target.value)
-    };
-
     const createTodos = async () => {
 
         try {
@@ -30,6 +26,8 @@ const Todo = () => {
                 }
             })
             setRefreshKey(prevKey => prevKey + 1)
+            setTodoInputs("")
+
         }catch(error) {
             console.log(error)
         }
@@ -62,22 +60,39 @@ const Todo = () => {
         getTodos();
     };
 
+    const checkboxHandler = (index) => {
+
+        const newTodos = [...todos];
+        newTodos[index].isCompleted = !todos[index].isCompleted
+        setTodos(newTodos);
+
+        console.log(todos[index].isCompleted)
+        axios.put(`https://www.pre-onboarding-selection-task.shop/todos/${todos[index].id}`, {
+                todo : todos[index].todo,
+                isCompleted : todos[index].isCompleted
+            },{ 
+            headers: {
+                    Authorization: `Bearer ${authorization}`,
+                    "Content-Type": "application/json"
+                }
+            });
+    };
+
     const editHandler = async (index) => {
 
         setEditTarget(-1);
 
         try {
-        const resp = await axios.put(`https://www.pre-onboarding-selection-task.shop/todos/${todos[index].id}`, {
-            todo : editedTodo,
-            isCompleted : todos[index].isCompleted
-        },{ 
-        headers: {
-                Authorization: `Bearer ${authorization}`,
-                "Content-Type": "application/json"
-            }
-        });
-
-        getTodos(); // 수정 후 데이터 최신화
+            await axios.put(`https://www.pre-onboarding-selection-task.shop/todos/${todos[index].id}`, {
+                todo : editedTodo,
+                isCompleted : todos[index].isCompleted
+            },{ 
+            headers: {
+                    Authorization: `Bearer ${authorization}`,
+                    "Content-Type": "application/json"
+                }
+            });
+            getTodos(); // 수정 후 데이터 최신화
         } catch (error) {
             console.log(error)
         }
@@ -97,13 +112,13 @@ const Todo = () => {
     return (
         <div>
             <div>
-                <input data-testid="new-todo-input" onChange={onChangeHandler} />
-                <button data-testid="new-todo-add-button" onClick={createTodos}>추가</button>
+                <input data-testid="new-todo-input" value = {todoInputs} onChange={(e) => setTodoInputs(e.target.value)} />
+                <button data-testid="new-todo-add-button" onClick={() => createTodos()}>추가</button>
             </div>
             {todos.map((data, index) => 
                 <li key={index}>
                     <label>
-                        <input type="checkbox" />
+                        <input type="checkbox" checked={todos.isCompleted} onChange={() => checkboxHandler(index)}/>
                     </label>
                     {editTarget === index ? 
                         <StUpdateBox>
